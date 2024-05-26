@@ -1,0 +1,14 @@
+.diskm-container {
+    margin-top: 32px;
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list-item .MuiIconButton-root {
+    margin-left: 8px;
+  }
+  

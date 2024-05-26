@@ -1,0 +1,24 @@
+.schedule-container {
+  margin-top: 32px;
+}
+
+.days-of-week-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.day-button {
+  flex-grow: 1;
+  margin: 0 4px;
+}
+
+.schedule-details {
+  margin-top: 16px;
+}
+
+.schedule-item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 8px;
+}

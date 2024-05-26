@@ -1,0 +1,21 @@
+.phonebook-container {
+    margin-top: 32px;
+  }
+  
+  .search-box {
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .contacts-box {
+    background-color: #1e3c72;
+    color: white;
+    padding: 16px;
+  }
+  
+  .social-icons img {
+    margin: 8px;
+    width: 32px;
+    height: 32px;
+  }
+  

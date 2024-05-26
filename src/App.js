@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import Schedule from './components/Schedule';
+import Settings from './components/Settings';
+import PhoneBook from './components/PhoneBook';
+import Students from './components/Students';
+import DiskM from './components/DiskM';
+import ChangePassword from './components/ChangePassword';
+
+const PrivateRoute = ({ children }) => {
+  const isAuthenticated = !!localStorage.getItem('token');
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route path="schedule" element={<Schedule />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="phonebook" element={<PhoneBook />} />
+          <Route path="students" element={<Students />} />
+          <Route path="diskm" element={<DiskM />} />
+          <Route path="" element={<Navigate to="schedule" />} /> {/* Redirect to schedule by default */}
+        </Route>
+        <Route path="*" element={<Navigate to="/login" />} /> {/* Redirect any unknown routes to login */}
+      </Routes>
+    </Router>
   );
 }
 
